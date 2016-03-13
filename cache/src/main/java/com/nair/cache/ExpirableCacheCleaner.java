@@ -6,7 +6,7 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class CacheCleaner<K extends ExpiringCacheKey<?>, V> extends Thread{
+public class ExpirableCacheCleaner<K extends ExpirableCacheKey<?>, V> extends Thread{
 
 	private DelayQueue<K>	delayQueue;
 	private Map<K, ExpiringCacheValue<K, V>> dataMap;
@@ -15,7 +15,7 @@ public class CacheCleaner<K extends ExpiringCacheKey<?>, V> extends Thread{
 	
 	private AtomicBoolean stopIndicator = new AtomicBoolean(Boolean.FALSE);
 	
-	public CacheCleaner(DelayQueue<K> delayQueue, Map<K, ExpiringCacheValue<K, V>> dataMap) {
+	public ExpirableCacheCleaner(DelayQueue<K> delayQueue, Map<K, ExpiringCacheValue<K, V>> dataMap) {
 		this.delayQueue = delayQueue;
 		this.dataMap = dataMap;
 	}

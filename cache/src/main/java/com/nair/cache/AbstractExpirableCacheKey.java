@@ -10,20 +10,20 @@ import java.util.concurrent.TimeUnit;
  * @author vaishakh
  *
  */
-public abstract class AbstractExpiringCacheKey implements Delayed{
+public abstract class AbstractExpirableCacheKey implements Delayed{
 
 	/**
 	 * The expiry time in Nano Seconds
 	 */
 	private long expiryTime;
 	
-	public AbstractExpiringCacheKey(long delayTime, TimeUnit timeUnit) {
+	public AbstractExpirableCacheKey(long delayTime, TimeUnit timeUnit) {
 		this.expiryTime = System.nanoTime() + TimeUnit.NANOSECONDS.convert(delayTime, timeUnit);
 	}
 
 	@Override
 	public int compareTo(Delayed o) {
-		return expiryTime - ((AbstractExpiringCacheKey) o).expiryTime > 0 ? 1 : -1;
+		return expiryTime - ((AbstractExpirableCacheKey) o).expiryTime > 0 ? 1 : -1;
 	}
 
 	@Override

@@ -9,11 +9,11 @@ import java.util.concurrent.TimeUnit;
  * @author vaishakh
  *
  */
-public class ExpiringCacheKey<T> extends AbstractExpiringCacheKey {
+public class ExpirableCacheKey<T> extends AbstractExpirableCacheKey {
 
 	private T key;
 	
-	public ExpiringCacheKey(long delayTime, TimeUnit timeUnit, T data) {
+	public ExpirableCacheKey(long delayTime, TimeUnit timeUnit, T data) {
 		super(delayTime, timeUnit);
 		this.key = data;
 	}
@@ -58,7 +58,7 @@ public class ExpiringCacheKey<T> extends AbstractExpiringCacheKey {
 			return false;
 		if(getClass() != obj.getClass())
 			return false;
-		ExpiringCacheKey<T> other = (ExpiringCacheKey<T>) obj;
+		ExpirableCacheKey<T> other = (ExpirableCacheKey<T>) obj;
 		if(key == null) {
 			if(other.key != null)
 				return false;

@@ -31,11 +31,11 @@ public class App {
 	
 	
 	public static void main(String[] args) throws InterruptedException {
-		ExpiringCache<ExpiringCacheKey<String>, String> cache = new ExpiringCache<ExpiringCacheKey<String>, String>();
-		ExpiringCacheKey<String> cacheKey = new ExpiringCacheKey<String>(10l, TimeUnit.SECONDS,  "key");
-		ExpiringCacheKey<String> cacheKey2 = new ExpiringCacheKey<String>(5l, TimeUnit.SECONDS,  "key");
-		ExpiringCacheKey<String> cacheKey3 = new ExpiringCacheKey<String>(2l, TimeUnit.SECONDS,  "key");
-		ExpiringCacheKey<String> cacheKey4 = new ExpiringCacheKey<String>(7l, TimeUnit.SECONDS,  "key");
+		ExpirableCache<ExpirableCacheKey<String>, String> cache = CacheFactory.getExpirableCache();
+		ExpirableCacheKey<String> cacheKey = new ExpirableCacheKey<String>(10l, TimeUnit.SECONDS,  "key");
+		ExpirableCacheKey<String> cacheKey2 = new ExpirableCacheKey<String>(5l, TimeUnit.SECONDS,  "key");
+		ExpirableCacheKey<String> cacheKey3 = new ExpirableCacheKey<String>(2l, TimeUnit.SECONDS,  "key");
+		ExpirableCacheKey<String> cacheKey4 = new ExpirableCacheKey<String>(7l, TimeUnit.SECONDS,  "key");
 		cache.putValue(cacheKey, "value1");
 		cache.putValue(cacheKey2, "value2");
 		cache.putValue(cacheKey3, "value3");
