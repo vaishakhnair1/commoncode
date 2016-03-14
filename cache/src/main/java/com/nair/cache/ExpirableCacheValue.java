@@ -7,12 +7,12 @@ package com.nair.cache;
  * @author vaishakh
  *
  */
-public class ExpiringCacheValue<K extends ExpirableCacheKey<?>, V> {
+public class ExpirableCacheValue<K extends ExpirableCacheKey<?>, V> {
 
 	private K key;
 	private V value;
 	
-	public ExpiringCacheValue(K key, V value) {
+	public ExpirableCacheValue(K key, V value) {
 		this.key = key;
 		this.value = value;
 	}

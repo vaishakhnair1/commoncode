@@ -9,13 +9,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ExpirableCacheCleaner<K extends ExpirableCacheKey<?>, V> extends Thread{
 
 	private DelayQueue<K>	delayQueue;
-	private Map<K, ExpiringCacheValue<K, V>> dataMap;
+	private Map<K, ExpirableCacheValue<K, V>> dataMap;
 	
 //	private static final Logger LOGGER = LoggerFactory.getLogger(CacheCleaner.class);
 	
 	private AtomicBoolean stopIndicator = new AtomicBoolean(Boolean.FALSE);
 	
-	public ExpirableCacheCleaner(DelayQueue<K> delayQueue, Map<K, ExpiringCacheValue<K, V>> dataMap) {
+	public ExpirableCacheCleaner(DelayQueue<K> delayQueue, Map<K, ExpirableCacheValue<K, V>> dataMap) {
 		this.delayQueue = delayQueue;
 		this.dataMap = dataMap;
 	}
@@ -30,7 +30,7 @@ public class ExpirableCacheCleaner<K extends ExpirableCacheKey<?>, V> extends Th
 			while (!stopIndicator.get()) {
 				K k = delayQueue.take();
 				if(k != null) {
-					ExpiringCacheValue<K, V> value = dataMap.get(k);
+					ExpirableCacheValue<K, V> value = dataMap.get(k);
 					if( value != null && value.getKey().getDelay(TimeUnit.MILLISECONDS) <= 0) {
 						dataMap.remove(k);
 						System.out.println("Removing value" + k.toString());

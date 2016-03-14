@@ -5,9 +5,9 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.DelayQueue;
 
-public class ExpirableCache<K extends ExpirableCacheKey<?>, V> {
+public class ExpirableCache<K extends ExpirableCacheKey<?>, V>{
 
-	private Map<K, ExpiringCacheValue<K, V>> dataMap;
+	private Map<K, ExpirableCacheValue<K, V>> dataMap;
 	private DelayQueue<K> delayQueue;
 	private ExpirableCacheCleaner<K, V> cacheCleaner;
 	
@@ -20,38 +20,51 @@ public class ExpirableCache<K extends ExpirableCacheKey<?>, V> {
 	}
 	
 	public ExpirableCache<K, V> putValue(K k, V v){
-//		if(dataMap.containsKey(k)){
-//			delayQueue.remove(k);
-//		}
-		dataMap.put(k, new ExpiringCacheValue<K, V>(k, v));
+		dataMap.put(k, new ExpirableCacheValue<K, V>(k, v));
 		delayQueue.put(k);
-		System.out.println(delayQueue);
 		return this;
 	}
-	
+
 	public ExpirableCache<K, V> putAll(ExpirableCache<K, V> existingCache){
-		for(Entry<K, ExpiringCacheValue<K, V>> a : existingCache.dataMap.entrySet()){
+		for(Entry<K, ExpirableCacheValue<K, V>> a : existingCache.dataMap.entrySet()){
 			putValue(a.getKey(), a.getValue().getValue());
 		}
 		return this;
 	}
 
 	public void flushALl(){
-		cacheCleaner.stopCleanUp();
-		cacheCleaner.interrupt();
+		stopCleanup();
 		initiate();
 	}
 
 	private void initiate() {
-		dataMap = new ConcurrentHashMap<K,  ExpiringCacheValue<K, V>>();
+		dataMap = new ConcurrentHashMap<K,  ExpirableCacheValue<K, V>>();
 		delayQueue = new DelayQueue<K>();
 		cacheCleaner = new ExpirableCacheCleaner<K, V>(delayQueue, dataMap);
 		cacheCleaner.start();
 	}
 
-	@Override
+	public int getActiveElements(){
+		return dataMap.size();
+	}
+	
 	public String toString() {
 		return dataMap.toString();
 	}
 	
+	public void shutdown(){
+		stopCleanup();
+		releaseData();
+	}
+
+	private void releaseData() {
+		dataMap = null;
+		delayQueue = null;
+		cacheCleaner = null;
+	}
+
+	private void stopCleanup() {
+		cacheCleaner.stopCleanUp();
+		cacheCleaner.interrupt();
+	}
 }
