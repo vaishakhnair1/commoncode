@@ -33,8 +33,10 @@
 	<name>Generic Application Cache Solution</name>
 	<description>This is a generic Application Cache. 
 Offers a variety of caching solutions.</description>
-	<organization>
-		<name>Vaishakh nair</name>
-		<url>https://github.com/vaishakhnair1/commoncode</url>
-	</organization>
+ <developers>
+    <developer>
+      <name>Vaishakh Nair</name>
+      <email>vaishakh.nair1@gmail.com</email>
+    </developer>
+  </developers>
 </project>
