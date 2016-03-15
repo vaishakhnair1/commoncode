@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.nair.cache;
+package com.nair.cache.expirable;
 
 /**
  * @author vaishakh
