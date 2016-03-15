@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 import com.nair.cache.expirable.ExpirableCache;
 
 /**
- * This class acts as the factory which provides the user an instance of the CacheType that is required.
+ * This class acts as the factory which provides the user an instance of the
+ * CacheType that is required.
  *
  * @author vaishakh
  *
@@ -17,8 +18,11 @@ public abstract class CacheFactory {
 
 	/**
 	 * This method is used to get a new Instance of an Expirable cache
-	 * @param timeOut The Time Delay before the key gets deleted from the Cache
-	 * @param timeUnit The time units in which delay is calculated.
+	 * 
+	 * @param timeOut
+	 *            The Time Delay before the key gets deleted from the Cache
+	 * @param timeUnit
+	 *            The time units in which delay is calculated.
 	 * @return
 	 */
 	public static <K, V> ExpirableCache<K, V> getExpirableCache(final long timeOut, final TimeUnit timeUnit) {
@@ -27,6 +31,7 @@ public abstract class CacheFactory {
 
 	/**
 	 * This method is used to get a new Instance of an Expirable cache
+	 * 
 	 * @return
 	 */
 	public static <K, V> ExpirableCache<K, V> getExpirableCache() {

@@ -39,18 +39,21 @@ public class ExpirableCacheCleaner<K, V> extends Thread {
 	 * The Logger.
 	 */
 	private static final Logger																LOGGER			= LoggerFactory
-			.getLogger(ExpirableCacheCleaner.class);
+																													.getLogger(ExpirableCacheCleaner.class);
 
 	/**
 	 * The StopIndicator
 	 */
-	private volatile AtomicBoolean																stopIndicator	= new AtomicBoolean(
-			Boolean.FALSE);
+	private volatile AtomicBoolean															stopIndicator	= new AtomicBoolean(
+																													Boolean.FALSE);
 
 	/**
 	 * Used to create an instance of the cache cleaner
-	 * @param delayQueue the queue which tracks expiry of keys
-	 * @param dataMap the map which stores mapping of keys to values
+	 * 
+	 * @param delayQueue
+	 *            the queue which tracks expiry of keys
+	 * @param dataMap
+	 *            the map which stores mapping of keys to values
 	 */
 	public ExpirableCacheCleaner(final DelayQueue<ExpirableCacheKey<K>> delayQueue,
 			final Map<ExpirableCacheKey<K>, ExpirableCacheValue<ExpirableCacheKey<K>, V>> dataMap) {

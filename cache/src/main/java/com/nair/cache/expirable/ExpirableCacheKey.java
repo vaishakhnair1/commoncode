@@ -6,7 +6,9 @@ package com.nair.cache.expirable;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This class is the wrapper class for all keys stored in an {@code ExpirableCache}
+ * This class is the wrapper class for all keys stored in an
+ * {@code ExpirableCache}
+ * 
  * @author vaishakh
  *
  */
@@ -19,9 +21,13 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
 	/**
 	 * used to create an instance of the {@code ExpirableCacheKey}
-	 * @param delayTime the delay time for the key
-	 * @param timeUnit the units in which delay time is calculated
-	 * @param key the key which is to be wrapped
+	 * 
+	 * @param delayTime
+	 *            the delay time for the key
+	 * @param timeUnit
+	 *            the units in which delay time is calculated
+	 * @param key
+	 *            the key which is to be wrapped
 	 */
 	public ExpirableCacheKey(final long delayTime, final TimeUnit timeUnit, final K key) {
 		super(delayTime, timeUnit);
@@ -30,7 +36,9 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
 	/**
 	 * used to create an instance of the {@code ExpirableCacheKey}
-	 * @param k the key which is to be wrapped
+	 * 
+	 * @param k
+	 *            the key which is to be wrapped
 	 */
 	public ExpirableCacheKey(final K k) {
 		this(15, TimeUnit.MINUTES, k);
@@ -45,7 +53,7 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -57,7 +65,7 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -70,7 +78,7 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@SuppressWarnings("unchecked")

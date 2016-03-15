@@ -7,8 +7,9 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
- * This class is the Abstract Expirable Cache Key,
- * and contains all logic of when Key is to be expired.
+ * This class is the Abstract Expirable Cache Key, and contains all logic of
+ * when Key is to be expired.
+ * 
  * @author vaishakh
  *
  */
@@ -21,8 +22,11 @@ public abstract class AbstractExpirableCacheKey implements Delayed {
 
 	/**
 	 * Used to intialize the expiry time of the Key
-	 * @param delayTime the time period after which Key is to be expired.
-	 * @param timeUnit the units in which above delay is calculated
+	 * 
+	 * @param delayTime
+	 *            the time period after which Key is to be expired.
+	 * @param timeUnit
+	 *            the units in which above delay is calculated
 	 */
 	public AbstractExpirableCacheKey(final long delayTime, final TimeUnit timeUnit) {
 		this.expiryTime = System.nanoTime() + TimeUnit.NANOSECONDS.convert(delayTime, timeUnit);
@@ -40,7 +44,7 @@ public abstract class AbstractExpirableCacheKey implements Delayed {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

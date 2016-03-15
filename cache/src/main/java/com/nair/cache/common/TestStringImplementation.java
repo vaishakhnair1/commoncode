@@ -1,5 +1,5 @@
 /*
- * This File is  the sole property of Paytm(One97 Communications Limited)
+ * This File is the sole property of Paytm(One97 Communications Limited)
  */
 package com.nair.cache.common;
 

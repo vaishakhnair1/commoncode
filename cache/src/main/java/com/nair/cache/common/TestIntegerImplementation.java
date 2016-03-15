@@ -1,5 +1,5 @@
 /*
- * This File is  the sole property of Paytm(One97 Communications Limited)
+ * This File is the sole property of Paytm(One97 Communications Limited)
  */
 package com.nair.cache.common;
 
@@ -9,7 +9,7 @@ public class TestIntegerImplementation<K, V> implements IExpirableCache<Integer,
 
 	@Override
 	public Integer getValue(final Integer k) {
-		return k.equals(1) ? 1 : k.equals(2) ? 2 :0;
+		return k.equals(1) ? 1 : k.equals(2) ? 2 : 0;
 	}
 
 }

@@ -6,8 +6,9 @@ package com.nair.cache.enums;
 import java.security.InvalidParameterException;
 
 /**
- * The types of Caches that will be supported.
- * Currently, only Expirable Cache is supported and implemented.
+ * The types of Caches that will be supported. Currently, only Expirable Cache
+ * is supported and implemented.
+ * 
  * @author vaishakh
  *
  */
@@ -23,11 +24,14 @@ public enum CacheType {
 
 	/**
 	 * Used to fetch the {@code CacheType} based on the String value
-	 * @param cacheType the String representation
+	 * 
+	 * @param cacheType
+	 *            the String representation
 	 * @return the CacheTypes corresponding
-	 * @throws InvalidParameterException if the value is not a valid {@code CacheType}
+	 * @throws InvalidParameterException
+	 *             if the value is not a valid {@code CacheType}
 	 */
-	public static CacheType getCacheType(final String cacheType) throws InvalidParameterException{
+	public static CacheType getCacheType(final String cacheType) throws InvalidParameterException {
 		for (final CacheType cacheTypes : CacheType.values()) {
 			if(cacheTypes.cacheType.equals(cacheType)) {
 				return cacheTypes;
