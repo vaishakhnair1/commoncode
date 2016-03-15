@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * The storage engine for an Expirable Cache.
- * 
+ *
  * @author vaishakh
  *
  * @param <K>
@@ -51,7 +51,7 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 
 	/**
 	 * Used to create an instance of the Expirable Cache
-	 * 
+	 *
 	 * @param timeOut
 	 *            the default TTL for each Key
 	 * @param timeUnit
@@ -72,7 +72,7 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 
 	/**
 	 * Used to Put a value to the cache
-	 * 
+	 *
 	 * @param k
 	 *            the key. This gets wrapped in {@code ExpirableCacheKey}
 	 * @param v
@@ -90,7 +90,7 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 
 	/**
 	 * Used to Put a value to the cache
-	 * 
+	 *
 	 * @param key
 	 *            the key. This gets wrapped in {@code ExpirableCacheKey}
 	 * @param value
@@ -103,10 +103,9 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 	/**
 	 * Used to populate this Cache with data from an already existing Expirable
 	 * Cache
-	 * 
+	 *
 	 * @param existingCache
 	 *            the existing Expirable Cache
-	 * @return
 	 */
 	public void putAll(final ExpirableCache<K, V> existingCache) {
 		for (final Entry<ExpirableCacheKey<K>, ExpirableCacheValue<ExpirableCacheKey<K>, V>> a : existingCache.dataMap.entrySet()) {
@@ -134,8 +133,8 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 
 	/**
 	 * Used to get the number of elements currently residing in the cache
-	 * 
-	 * @return
+	 *
+	 * @return the number of cached elements
 	 */
 	public int getActiveElements() {
 		return dataMap.size();
