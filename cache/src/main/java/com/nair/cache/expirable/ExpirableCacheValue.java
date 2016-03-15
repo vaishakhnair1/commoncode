@@ -9,9 +9,9 @@ package com.nair.cache.expirable;
  */
 public class ExpirableCacheValue<K extends ExpirableCacheKey<?>, V> {
 
-	private K key;
-	private V value;
-	
+	private K	key;
+	private V	value;
+
 	public ExpirableCacheValue(K key, V value) {
 		this.key = key;
 		this.value = value;
@@ -30,5 +30,5 @@ public class ExpirableCacheValue<K extends ExpirableCacheKey<?>, V> {
 	public V getValue() {
 		return value;
 	}
-	
+
 }

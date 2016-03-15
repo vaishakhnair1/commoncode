@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 
-	private K key;
-	
+	private K	key;
+
 	public ExpirableCacheKey(long delayTime, TimeUnit timeUnit, K key) {
 		super(delayTime, timeUnit);
 		this.key = key;
@@ -25,7 +25,9 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 		return key;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -35,7 +37,9 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 		return builder.toString();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -46,7 +50,9 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@SuppressWarnings("unchecked")
@@ -66,7 +72,5 @@ public class ExpirableCacheKey<K> extends AbstractExpirableCacheKey {
 			return false;
 		return true;
 	}
-	
-	
 
 }
