@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="PAYTMPG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/alog/app.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'MM-dd-yyyy-HH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} %X{requestId} [%t] %-5p %c.%M():%L %x - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} %X{requestId} [%t] %-5p %c.%M():%L %x - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="500" />
+		<param name="LocationInfo" value="true" />
+		<appender-ref ref="PAYTMPG" />
+	</appender>
+
+	<appender name="performance-logger-appender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/alog/performance${logPath}.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} %X{requestId} [%t] %-5p %c %x - %m%n" />
+		</layout>
+	</appender>
+	<logger name="com.paytm.data.aerospike.logger.PerformanceLogger"
+		additivity="false">
+		<level value="debug" />
+		<appender-ref ref="performance-logger-appender" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="error" />
+	</logger>
+
+	<logger name="org.apache.http" additivity="false">
+		<level value="error" />
+	</logger>
+
+	<logger name="com.mchange" additivity="false">
+		<level value="error" />
+	</logger>
+
+	<logger name="com.paytm" additivity="false">
+		<level value="info" />
+		<appender-ref ref="ASYNC" />
+	</logger>
+	<root>
+		<priority value="info" />
+		<appender-ref ref="ASYNC" />
+	</root>
+</log4j:configuration>
+
+    
+

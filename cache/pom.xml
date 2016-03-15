@@ -29,14 +29,24 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.5</version>
+		</dependency>
+
 	</dependencies>
 	<name>Generic Application Cache Solution</name>
-	<description>This is a generic Application Cache. 
-Offers a variety of caching solutions.</description>
- <developers>
-    <developer>
-      <name>Vaishakh Nair</name>
-      <email>vaishakh.nair1@gmail.com</email>
-    </developer>
-  </developers>
+	<description>This is a generic Application Cache. Offers a variety of caching solutions.</description>
+	<developers>
+		<developer>
+			<name>Vaishakh Nair</name>
+			<email>vaishakh.nair1@gmail.com</email>
+		</developer>
+	</developers>
 </project>
