@@ -2,7 +2,7 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" metadata-complete="true">
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -21,12 +21,11 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 			<param-value>/WEB-INF/applicationContext.xml
 			</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>
