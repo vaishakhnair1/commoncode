@@ -63,7 +63,6 @@ public class ExpirableCache<K, V> implements IExpirableCache<K, V> {
 		initiate();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public V getValue(final K k) {
 		final ExpirableCacheKey<K> cacheKey = new ExpirableCacheKey<K>(k);
